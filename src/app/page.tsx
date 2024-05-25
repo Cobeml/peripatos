@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
-import Image from 'next/image'
+import Image from 'next/image';
+import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
-import { CardBody, CardContainer, CardItem } from "../components/ui/3D-card";
+import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+
+const World = dynamic(() => import("../components/ui/globe").then((m) => m.World), {
+  ssr: false,
+});
 
 export default function Home() {
   const words = [
@@ -31,6 +36,391 @@ export default function Home() {
   ];
   const cursorClassName = "lock rounded-sm w-[3px] h-3 sm:h-4 xl:h-7 bg-pink-400 justify-bottom";
   const className = "justify-center items-center";
+  const globeConfig = {
+    pointSize: 4,
+    globeColor: "#062056",
+    showAtmosphere: true,
+    atmosphereColor: "#FFFFFF",
+    atmosphereAltitude: 0.1,
+    emissive: "#062056",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
+    polygonColor: "rgba(255,255,255,0.7)",
+    ambientLight: "#38bdf8",
+    directionalLeftLight: "#ffffff",
+    directionalTopLight: "#ffffff",
+    pointLight: "#ffffff",
+    arcTime: 1000,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+    initialPosition: { lat: 22.3193, lng: 114.1694 },
+    autoRotate: true,
+    autoRotateSpeed: 0.5,
+  };
+  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const sampleArcs = [
+    {
+      order: 1,
+      startLat: -19.885592,
+      startLng: -43.951191,
+      endLat: -22.9068,
+      endLng: -43.1729,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 1,
+      startLat: 28.6139,
+      startLng: 77.209,
+      endLat: 3.139,
+      endLng: 101.6869,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 1,
+      startLat: -19.885592,
+      startLng: -43.951191,
+      endLat: -1.303396,
+      endLng: 36.852443,
+      arcAlt: 0.5,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: 1.3521,
+      startLng: 103.8198,
+      endLat: 35.6762,
+      endLng: 139.6503,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: 51.5072,
+      startLng: -0.1276,
+      endLat: 3.139,
+      endLng: 101.6869,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: -15.785493,
+      startLng: -47.909029,
+      endLat: 36.162809,
+      endLng: -115.119411,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: -33.8688,
+      startLng: 151.2093,
+      endLat: 22.3193,
+      endLng: 114.1694,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: 21.3099,
+      startLng: -157.8581,
+      endLat: 40.7128,
+      endLng: -74.006,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: -6.2088,
+      startLng: 106.8456,
+      endLat: 51.5072,
+      endLng: -0.1276,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 4,
+      startLat: 11.986597,
+      startLng: 8.571831,
+      endLat: -15.595412,
+      endLng: -56.05918,
+      arcAlt: 0.5,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 4,
+      startLat: -34.6037,
+      startLng: -58.3816,
+      endLat: 22.3193,
+      endLng: 114.1694,
+      arcAlt: 0.7,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 4,
+      startLat: 51.5072,
+      startLng: -0.1276,
+      endLat: 48.8566,
+      endLng: -2.3522,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 5,
+      startLat: 14.5995,
+      startLng: 120.9842,
+      endLat: 51.5072,
+      endLng: -0.1276,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 5,
+      startLat: 1.3521,
+      startLng: 103.8198,
+      endLat: -33.8688,
+      endLng: 151.2093,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 5,
+      startLat: 34.0522,
+      startLng: -118.2437,
+      endLat: 48.8566,
+      endLng: -2.3522,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 6,
+      startLat: -15.432563,
+      startLng: 28.315853,
+      endLat: 1.094136,
+      endLng: -63.34546,
+      arcAlt: 0.7,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 6,
+      startLat: 37.5665,
+      startLng: 126.978,
+      endLat: 35.6762,
+      endLng: 139.6503,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 6,
+      startLat: 22.3193,
+      startLng: 114.1694,
+      endLat: 51.5072,
+      endLng: -0.1276,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 7,
+      startLat: -19.885592,
+      startLng: -43.951191,
+      endLat: -15.595412,
+      endLng: -56.05918,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 7,
+      startLat: 48.8566,
+      startLng: -2.3522,
+      endLat: 52.52,
+      endLng: 13.405,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 7,
+      startLat: 52.52,
+      startLng: 13.405,
+      endLat: 34.0522,
+      endLng: -118.2437,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 8,
+      startLat: -8.833221,
+      startLng: 13.264837,
+      endLat: -33.936138,
+      endLng: 18.436529,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 8,
+      startLat: 49.2827,
+      startLng: -123.1207,
+      endLat: 52.3676,
+      endLng: 4.9041,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 8,
+      startLat: 1.3521,
+      startLng: 103.8198,
+      endLat: 40.7128,
+      endLng: -74.006,
+      arcAlt: 0.5,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 9,
+      startLat: 51.5072,
+      startLng: -0.1276,
+      endLat: 34.0522,
+      endLng: -118.2437,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 9,
+      startLat: 22.3193,
+      startLng: 114.1694,
+      endLat: -22.9068,
+      endLng: -43.1729,
+      arcAlt: 0.7,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 9,
+      startLat: 1.3521,
+      startLng: 103.8198,
+      endLat: -34.6037,
+      endLng: -58.3816,
+      arcAlt: 0.5,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 10,
+      startLat: -22.9068,
+      startLng: -43.1729,
+      endLat: 28.6139,
+      endLng: 77.209,
+      arcAlt: 0.7,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 10,
+      startLat: 34.0522,
+      startLng: -118.2437,
+      endLat: 31.2304,
+      endLng: 121.4737,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 10,
+      startLat: -6.2088,
+      startLng: 106.8456,
+      endLat: 52.3676,
+      endLng: 4.9041,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 11,
+      startLat: 41.9028,
+      startLng: 12.4964,
+      endLat: 34.0522,
+      endLng: -118.2437,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 11,
+      startLat: -6.2088,
+      startLng: 106.8456,
+      endLat: 31.2304,
+      endLng: 121.4737,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 11,
+      startLat: 22.3193,
+      startLng: 114.1694,
+      endLat: 1.3521,
+      endLng: 103.8198,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 12,
+      startLat: 34.0522,
+      startLng: -118.2437,
+      endLat: 37.7749,
+      endLng: -122.4194,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 12,
+      startLat: 35.6762,
+      startLng: 139.6503,
+      endLat: 22.3193,
+      endLng: 114.1694,
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 12,
+      startLat: 22.3193,
+      startLng: 114.1694,
+      endLat: 34.0522,
+      endLng: -118.2437,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 13,
+      startLat: 52.52,
+      startLng: 13.405,
+      endLat: 22.3193,
+      endLng: 114.1694,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 13,
+      startLat: 11.986597,
+      startLng: 8.571831,
+      endLat: 35.6762,
+      endLng: 139.6503,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 13,
+      startLat: -22.9068,
+      startLng: -43.1729,
+      endLat: -34.6037,
+      endLng: -58.3816,
+      arcAlt: 0.1,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 14,
+      startLat: -33.936138,
+      startLng: 18.436529,
+      endLat: 21.395643,
+      endLng: 39.883798,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+  ];
   return (
     <div className="min-h-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
@@ -84,7 +474,7 @@ export default function Home() {
           </div>
         </ContainerScroll>
       </div>
-      <div className="w-[80rem]">
+      <div className="w-[80rem] relative flex flex-col justify-center">
         <CardContainer className="w-[55rem]">
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
@@ -99,7 +489,7 @@ export default function Home() {
             <CardItem
               as="p"
               translateZ="20"
-              className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300 italic"
+              className="text-neutral-500 text-sm mt-2 dark:text-neutral-300 italic"
             >
               Aristotle's School by Gustav Adolph Spangenberg
             </CardItem>
@@ -123,22 +513,103 @@ export default function Home() {
           Freedom Education
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          There is a higher truth worth pursuing and that progression toward truth is best 
+          Greater truth is worth pursuing and progression toward truth is best 
           undertaken by utilizing the wisdom and knowledge of past humans. This is Peripatos's {" "}
           <a href="https://thenetworkstate.com/the-one-commandment" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             One Commandment
           </a>
-          . The necessary moral consequence of this is education, which is best defined as the processs
-          of passing wisdom and knowledge from one generation to the next.
+          .
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          The educational process is facilitated via communication between teachers and students. This may seem 
+          Groups differ on what they believe ultimate truth is, if it can be attained, and some 
+          doubt the existence of fundamental truths. Additionally, throughout history, evil has proliferated 
+          in the name of truth. However, when caught in the face of greater wisdom and technology, 
+          evil has sought recourse through the desemination of untruths and lies. 
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          In pursuit of truth, humans 
+          have created models and maps of all kinds (technical, moral, and spiritual) which have 
+          given rise to beauty, prosperity, and progress. As long as we continue 
+          to build better models and draw better maps, humans will continue to tend toward greater prosperity.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The necessary moral consequence of this is education, which is best defined as the processs
+          of passing wisdom and knowledge from one generation to the next. The educational process is facilitated via communication between teachers and students. This may seem 
           rhetorical but when put in simple terms, the bloatware present in our modern education systems becomes 
           blatantly obvious.
         </p>
         <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-          The Joke Tax
+          New Educational Paradigm
         </h3>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Education does not necessitate a state/board sealed stamp of approval on topics and textbooks. It also doesn't necessitate a 
+          six figure price tag. When it comes to resource allocation, a career bureaucrat often lacks the experience and incentive structure 
+          to make sound decisions. The best allocators are individuals driven by passion, interest, and unmet market demand.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos provides the marketplace whereby individuals can monetize their knowledge and wisdom by passing it on to others 
+          in the form of text, video, or in-person material. This frees educators to teach what they want and how they want at a price 
+          of their choosing. 
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos also provides a marketplace which allows property owners to monetize venues by renting out the space to educators. 
+          It is undeniable that in person education is often preferrable. Through the power of network effects, Peripatos allows for 
+          the organic formation of thriving campuses.
+        </p>
+        <CardContainer className="w-[55rem]">
+          <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
+            <CardItem translateZ="20" className="w-full">
+              <Image
+                src="/campus.png"
+                height="1000"
+                width="1000"
+                className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                alt="thumbnail"
+              />
+            </CardItem>
+            <CardItem
+              as="p"
+              translateZ="20"
+              className="text-neutral-500 text-sm mt-2 dark:text-neutral-300 italic"
+            >
+              Network Effect Campus Vibes
+            </CardItem>
+          </CardBody>
+        </CardContainer>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Lastly, Peripatos acts as a marketplace whereby educators and property owners can sell partial ownership of their owned 
+          entities (educational material / venues) to investors. Partial ownership grants a proportional percentage of the revenue generated and 
+          possibly governance depending on the percentage of ownership and terms of sale.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos's marketplace gives way to a thriving educational environment through which high quality education is accessible to people from all 
+          walks of life, globally.
+        </p>
+        <div className="max-w-7xl mx-auto relative overflow-hidden md:h-[40rem] md:w-[50rem]">
+          <div className="absolute w-full h-72 md:h-full z-10">
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          </div>
+        </div>
+        <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+          Tech Stack
+        </h3>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos is made up of an underlying protocol layer, built using a Tendermint Proof of Stake blockchain, and an adaptable client-side layer. 
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The protocol layer is used as the 
+          ledger and central database for all marketplace transactions and commodities. The ledger is secured by staking the $PTOS token. Stakers receive transaction fees incurred by users 
+          minting NFTs or transacting onchain. 
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The types of commodities which can be owned or traded can be separated into two types: Ownership NFTs and Access NFTs. The Ownership NFTs signify ownership of either educational 
+          material or a venue. The owner of the Ownership NFT receives the revenue associated with the owned entity. The Access NFTs provide access 
+          encrypted information and content associated with respective Ownership NFTs to the Access NFT owners.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Ownership NFTs can be minted by anyone who would like to sell educational material or a venue on the Peripatos marketplace.  Any Ownership NFT can be split 
+          into any number of smaller parts, each signifying a proportionally partial share of the revenue associated with the parent Ownership NFT.
+        </p>
       </div>
     </div>
   );

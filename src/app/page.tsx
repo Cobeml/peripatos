@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from 'next/image';
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
@@ -498,16 +498,16 @@ export default function Home() {
               translateZ="20"
               className="text-neutral-500 text-sm mt-2 dark:text-neutral-300 italic"
             >
-              Aristotle's School by Gustav Adolph Spangenberg
+              Aristotle&apos;s School by Gustav Adolph Spangenberg
             </CardItem>
           </CardBody>
         </CardContainer>
         <blockquote className="border-l-2 pl-6 italic">
           The term peripatetic is a transliteration of the ancient Greek word 
-          περιπατητικός (peripatētikós), which means "of walking" or "given to 
-          walking about"... Aristotle's school came to be so named because of the 
-          peripatoi ("walkways", some covered or with colonnades) of the Lyceum 
-          where the members met. The legend that the name came from Aristotle's 
+          περιπατητικός (peripatētikós), which means &quot;of walking&quot; or &quot;given to 
+          walking about&quot;... Aristotle&apos;s school came to be so named because of the 
+          peripatoi (&quot;walkways&quot;, some covered or with colonnades) of the Lyceum 
+          where the members met. The legend that the name came from Aristotle&apos;s 
           alleged habit of walking while lecturing may have started with Hermippus 
           of Smyrna.
         </blockquote>
@@ -521,7 +521,7 @@ export default function Home() {
         </h2>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Greater truth is worth pursuing and progression toward truth is best 
-          undertaken by utilizing the wisdom and knowledge of past humans. This is Peripatos's {" "}
+          undertaken by utilizing the wisdom and knowledge of past humans. This is Peripatos&apos;s {" "}
           <a href="https://thenetworkstate.com/the-one-commandment" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             One Commandment
           </a>
@@ -549,7 +549,7 @@ export default function Home() {
           New Educational Paradigm
         </h3>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Education does not necessitate a state/board sealed stamp of approval on topics and textbooks. It also doesn't necessitate a 
+          Education does not necessitate a state/board sealed stamp of approval on topics and textbooks. It also doesn&apos;t necessitate a 
           six figure price tag. When it comes to resource allocation, a career bureaucrat often lacks the experience and incentive structure 
           to make sound decisions. The best allocators are individuals driven by passion, interest, and unmet market demand.
         </p>
@@ -589,7 +589,7 @@ export default function Home() {
           possibly governance depending on the percentage of ownership and terms of sale.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Peripatos's marketplace gives way to a thriving educational environment through which high quality education is globally accessible.
+          Peripatos&apos;s marketplace gives way to a thriving educational environment through which high quality education is globally accessible.
         </p>
         <div className="max-w-7xl mx-auto relative overflow-hidden md:h-[40rem] md:w-[50rem]">
           <div className="absolute w-full h-72 md:h-full z-10">
@@ -639,7 +639,7 @@ export default function Home() {
             <AccordionTrigger>Profile NFTs</AccordionTrigger>
             <AccordionContent>
             Profile NFTs are soulbound NFTs, meaning that once minted they cannot be traded. They contain simple information like a name and a 
-            bio which are mutable by the holder. Additionally, anyone can leave a review associated with a holder's Profile NFT, describing their 
+            bio which are mutable by the holder. Additionally, anyone can leave a review associated with a holder&apos;s Profile NFT, describing their 
             experience with the user. Anyone can mint a Profile NFT. Users are incentivized to mint them as developing a solid reputation 
             increases engagement.
             </AccordionContent>
@@ -660,19 +660,19 @@ export default function Home() {
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Switching from client to client is like switching from 
-          YouTube to another video sharing platform which has access to all of YouTube's content and your past interactions as a user. This drastic 
-          decrease in friction in the user's ability to opt in or out of a given client's feature set, business model, and policies allows for greater 
+          YouTube to another video sharing platform which has access to all of YouTube&apos;s content and your past interactions as a user. This drastic 
+          decrease in friction in the user&apos;s ability to opt in or out of a given client&apos;s feature set, business model, and policies allows for greater 
           competition between clients. This high degree of competition results in a highly differntiated and competitive 
           client market.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           This flexibile yet decentralized approach is important to maintain resilience in the face of information controversy and regulatory 
-          crackdown. In the case of information controversy each client's handling (or lack thereof) will be judged by users and the client's 
+          crackdown. In the case of information controversy each client&apos;s handling (or lack thereof) will be judged by users and the client&apos;s 
           actions will cause the client to lose or gain activity at the margin as a consequence. This incentive structure has all clients competing 
           for the approval of users in their moderation decisions.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          This approach also lends itself to provide the "it just works!" moments everyone appreciates. Allowing for competing clients allows each 
+          This approach also lends itself to provide the &quot;it just works!&quot; moments everyone appreciates. Allowing for competing clients allows each 
           client to provide a different user experience as well as additional features. Many of these features will provide conveniences which the 
           protocol layer itself is incapable of providing (native video hosting, on demand video streaming, interactive content modules, personalized 
           feeds, fiat payment). Additionally, the competition of user interfaces allows for different clients to cater to different users. While many 
@@ -687,7 +687,7 @@ export default function Home() {
           Just Build It
         </h3>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Many think of an individual's levers on society's ailments as either Exit or Voice. However, when the exit alternative is only worse or 
+          Many think of an individual&apos;s levers on society&apos;s ailments as either Exit or Voice. However, when the exit alternative is only worse or 
           requires immense discomfort, these tools leave the unsatisfied class impotent to peaceful change. In these scenarios, many 
           (rightfully) unsatisfied with their institutions are emboldened to destructive violence resulting in chaos, leaving a power vacuum in their 
           wake. Those who fill this vacuum are often charasmatic, idealistic, and power hungry. The institutions they create run the risk of becoming 
@@ -698,16 +698,16 @@ export default function Home() {
           to animate and empower others. The decrease in friction allows for peaceful but meaningful change.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Peripatos's goal is to build a thriving educational environment free from needless bureaucracy. The modern educational institutions are too 
+          Peripatos&apos;s goal is to build a thriving educational environment free from needless bureaucracy. The modern educational institutions are too 
           often unhelpful, unintersting, and expensive. However, for most it is still the best choice and the education it provides is undeniably 
-          important. Education's importance make the faults of the modern education system all the more dire.
+          important. Education&apos;s importance make the faults of the modern education system all the more dire.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           The common exit strategies are also unsuitable to most; Homeschooling can be isolating and taxing on the parents and online courses are often 
           less engaging than their state sponsored, in-person counterparts. 
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Peripatos's free marketplace for in-person and online education hopes to foster more potent and flexible exit strategies for those interested 
+          Peripatos&apos;s free marketplace for in-person and online education hopes to foster more potent and flexible exit strategies for those interested 
           in the unabashed pursuit of truth. We are providing the protocol level tools for others to Build thriving alternatives. Whether it be as a 
           educator, venue owner, client, investor, or student, we have reduced the friction to sustainably pursue this third path.
         </p>

@@ -31,3 +31,29 @@ body {
     text-wrap: balance;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base mobile styles */
+.text-large {
+  font-size: 67px;
+  padding: 8px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .text-large {
+    font-size: 90px;
+    padding: 12px;
+  }
+}
+
+/* Even larger screens */
+@media (min-width: 1024px) {
+  .text-large {
+    font-size: 120px;
+    padding: 16px;
+  }
+}

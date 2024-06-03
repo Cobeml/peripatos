@@ -6,6 +6,13 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion"
+
 
 const World = dynamic(() => import("../components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -578,12 +585,11 @@ export default function Home() {
         </CardContainer>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Lastly, Peripatos acts as a marketplace whereby educators and property owners can sell partial ownership of their owned 
-          entities (educational material / venues) to investors. Partial ownership grants a proportional percentage of the revenue generated and 
+          entities (educational material/venues) to investors. Partial ownership grants a proportional percentage of the revenue generated and 
           possibly governance depending on the percentage of ownership and terms of sale.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Peripatos's marketplace gives way to a thriving educational environment through which high quality education is accessible to people from all 
-          walks of life, globally.
+          Peripatos's marketplace gives way to a thriving educational environment through which high quality education is globally accessible.
         </p>
         <div className="max-w-7xl mx-auto relative overflow-hidden md:h-[40rem] md:w-[50rem]">
           <div className="absolute w-full h-72 md:h-full z-10">
@@ -591,25 +597,151 @@ export default function Home() {
           </div>
         </div>
         <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-          Tech Stack
+          Protocol Layer
         </h3>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           Peripatos is made up of an underlying protocol layer, built using a Tendermint Proof of Stake blockchain, and an adaptable client-side layer. 
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          The protocol layer is used as the 
-          ledger and central database for all marketplace transactions and commodities. The ledger is secured by staking the $PTOS token. Stakers receive transaction fees incurred by users 
-          minting NFTs or transacting onchain. 
+          The protocol layer is used as the ledger and central database for all marketplace transactions and commodities. The ledger is secured by staking 
+          the $PTOS token. All transactions and activity occuring on the protocol layer incurs fees, earned by $PTOS stakers.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          The types of commodities which can be owned or traded can be separated into two types: Ownership NFTs and Access NFTs. The Ownership NFTs signify ownership of either educational 
-          material or a venue. The owner of the Ownership NFT receives the revenue associated with the owned entity. The Access NFTs provide access 
-          encrypted information and content associated with respective Ownership NFTs to the Access NFT owners.
+          The types of commodities which can be owned or traded can be separated into three types: Ownership NFTs, Access NFTs, and Profile NFTs. The 
+          Ownership NFTs signify ownership of either educational material or a venue. The holder of the Ownership NFT receives the revenue associated 
+          with the owned entity. Access NFT holders can access encrypted information and content associated with respective Ownership NFTs. Profile NFTs 
+          are soulbound NFTs which track the reputation of a user.
+        </p>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Ownership NFTs</AccordionTrigger>
+            <AccordionContent>
+            Ownership NFTs can be minted by anyone who would like to sell educational material or a venue on the Peripatos marketplace. The wallet 
+            address which mints the Ownership NFT receives the Ownership NFT and has full access to mutate and edit it as they choose. They can 
+            additionally choose other wallet addresses which can edit its content. Ownership NFTs can be split into any number of smaller parts, 
+            each signifying a proportionally partial share of the revenue associated with the parent Ownership NFT. When splitting, the holder can 
+            choose what mutation permissions each of the children Ownership NFTs have. The children cannot be granted permissions which the parent 
+            Ownership NFT does not have. Additonally, anyone can leave a review associated with an Ownership NFT describing their experience with 
+            the product.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Access NFTs</AccordionTrigger>
+            <AccordionContent>
+            All Ownership NFTs contain information or content which is encrypted and inaccessible except to the holders of the Ownership NFTs and holders 
+            of respective Access NFTs. The encrypted content could be anything from educational material, directions to access the venue location, or 
+            directions to access high-memory content like videos which could not be stored onchain. Access NFTs can be minted by holders of Ownership 
+            NFT with Access NFT minting permissions. The minter can set parameters for the Access NFTs including during what time period the encrypted 
+            content can be accessed and if the Access NFT can be resold.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Profile NFTs</AccordionTrigger>
+            <AccordionContent>
+            Profile NFTs are soulbound NFTs, meaning that once minted they cannot be traded. They contain simple information like a name and a 
+            bio which are mutable by the holder. Additionally, anyone can leave a review associated with a holder's Profile NFT, describing their 
+            experience with the user. Anyone can mint a Profile NFT. Users are incentivized to mint them as developing a solid reputation 
+            increases engagement.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+          Client-Side Layer
+        </h3>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Clients are the user interfaces through which users interact with the protocol layer. Anyone can create and host a client. Different clients 
+          provide different user experiences, interface conventions, business models, and additional features. Using a different client may often feel 
+          like using a completely different application.
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Ownership NFTs can be minted by anyone who would like to sell educational material or a venue on the Peripatos marketplace.  Any Ownership NFT can be split 
-          into any number of smaller parts, each signifying a proportionally partial share of the revenue associated with the parent Ownership NFT.
+          The competitiion between clients is fundamentally different from the competition between other educational/online platforms. This is because 
+          all clients have access to the the underlying Peripatos protocol layer containing the network of users and content. This network of users and 
+          content is the most valuable asset many educational/online platforms have. 
         </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Switching from client to client is like switching from 
+          YouTube to another video sharing platform which has access to all of YouTube's content and your past interactions as a user. This drastic 
+          decrease in friction in the user's ability to opt in or out of a given client's feature set, business model, and policies allows for greater 
+          competition between clients. This high degree of competition results in a highly differntiated and competitive 
+          client market.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          This flexibile yet decentralized approach is important to maintain resilience in the face of information controversy and regulatory 
+          crackdown. In the case of information controversy each client's handling (or lack thereof) will be judged by users and the client's 
+          actions will cause the client to lose or gain activity at the margin as a consequence. This incentive structure has all clients competing 
+          for the approval of users in their moderation decisions.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          This approach also lends itself to provide the "it just works!" moments everyone appreciates. Allowing for competing clients allows each 
+          client to provide a different user experience as well as additional features. Many of these features will provide conveniences which the 
+          protocol layer itself is incapable of providing (native video hosting, on demand video streaming, interactive content modules, personalized 
+          feeds, fiat payment). Additionally, the competition of user interfaces allows for different clients to cater to different users. While many 
+          will prefer that the techno-mumbo-jumbo remain under the hood, some will opt for greater customization and clarity.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          As the Peripatos user base expands, so will the incentive for new clients to enter the market and for existing clients to improve. Clients 
+          are free to operate under different business models to cover their operatonal costs and seek profit. To remain competitive, clients will 
+          choose their business model based on their structure and user preference.
+        </p>
+        <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+          Just Build It
+        </h3>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Many think of an individual's levers on society's ailments as either Exit or Voice. However, when the exit alternative is only worse or 
+          requires immense discomfort, these tools leave the unsatisfied class impotent to peaceful change. In these scenarios, many 
+          (rightfully) unsatisfied with their institutions are emboldened to destructive violence resulting in chaos, leaving a power vacuum in their 
+          wake. Those who fill this vacuum are often charasmatic, idealistic, and power hungry. The institutions they create run the risk of becoming 
+          more dogmatic than what came before.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The only choice this leaves the unsatisfied but pragmatic class is Build. This means to build better and more easily accessible exit strategies 
+          to animate and empower others. The decrease in friction allows for peaceful but meaningful change.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos's goal is to build a thriving educational environment free from needless bureaucracy. The modern educational institutions are too 
+          often unhelpful, unintersting, and expensive. However, for most it is still the best choice and the education it provides is undeniably 
+          important. Education's importance make the faults of the modern education system all the more dire.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The common exit strategies are also unsuitable to most; Homeschooling can be isolating and taxing on the parents and online courses are often 
+          less engaging than their state sponsored, in-person counterparts. 
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Peripatos's free marketplace for in-person and online education hopes to foster more potent and flexible exit strategies for those interested 
+          in the unabashed pursuit of truth. We are providing the protocol level tools for others to Build thriving alternatives. Whether it be as a 
+          educator, venue owner, client, investor, or student, we have reduced the friction to sustainably pursue this third path.
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Just Build It.
+        </p>
+      </div>
+      <div className="h-[40rem] min-h-screen w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+        <div className="w-full absolute inset-0 h-screen">
+          <SparklesCore
+            id="tsparticlesfullpage"
+            background="transparent"
+            minSize={0.6}
+            maxSize={1.4}
+            particleDensity={100}
+            className="w-full h-full"
+            particleColor="#FFFFD0"
+          />
+        </div>
+        <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div className="max-w-4xl mx-auto p-4">
+          <h1 className="relative z-10 text-8xl font-bold text-center">
+            Join the waitlist
+          </h1>
+          <p></p>
+          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
+            Joining will grant you early access to upcoming releases as well as keep you updated on Peripatos.
+          </p>
+          <input
+            type="text"
+            placeholder="example@peripatos.com"
+            className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700"
+          />
+        </div>
       </div>
     </div>
   );

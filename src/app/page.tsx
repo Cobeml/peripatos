@@ -433,7 +433,14 @@ export default function Home() {
     <>
       <Head>
         <title>Peripatos - Education Network</title>
-        <link rel="icon" type="image/ico" sizes="32x32" href="./icons/icon1.ico" />
+        <link rel="icon" href="favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="apple-icon.png"
+        />
+        <link rel="icon" type="image/png" sizes="32x32" href="icon32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon16x16.png" />
       </Head>
     
     <div className="min-h-screen min-w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
@@ -542,7 +549,7 @@ export default function Home() {
         </p>
         <p className="[&:not(:first-child)]:mt-6">
           In pursuit of truth, humans 
-          have created models and maps of all kinds ({" "}
+          have created models and maps of all kinds (
           <a href="https://en.wikipedia.org/wiki/Scientific_modelling" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             technical
           </a>
@@ -602,7 +609,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/campus.png"
+                src="/peripatos/campus.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"

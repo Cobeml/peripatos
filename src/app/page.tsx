@@ -609,7 +609,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/peripatos/campus.png"
+                src="/campus.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"

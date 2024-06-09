@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
-import { ContainerScroll } from "../components/ui/container-scroll-animation";
+import { ContainerScroll } from "../components/ui/container-scroll-animation2";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import {
   Accordion,
@@ -441,7 +441,18 @@ export default function Home() {
         </div>
       </div>
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <ContainerScroll>
+        <ContainerScroll
+          titleComponent={
+            <>
+              <h1 className="text-4xl font-semibold text-black dark:text-white">
+                Unleash the power of <br />
+                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                  Scroll Animations
+                </span>
+              </h1>
+            </>
+          }        
+        >
           <div className="flex flex-col items-center justify-center">
             <h1 className="text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
               Peripatos

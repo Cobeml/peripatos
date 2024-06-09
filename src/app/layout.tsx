@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     "Peripatos is a peer-to-peer education network and marketplace. Peripatos hopes to be the place where truth can be pursued unabashedly, free from the bureaucratic death trap.",
   icons: {
     icon: '/peripatos/favicon.ico',
-    shortcut: '/peripatos/icon32x32.png',
     apple: '/peripatos/apple-icon.png',
   }
 };

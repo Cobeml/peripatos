@@ -447,7 +447,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
           <a href="#" rel="noopener noreferrer">
-            <Image src="/peripa-logo.png" alt="Logo" className="mr-8" width={60} height={60} />
+            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8" width={60} height={60} />
           </a>
           <a href="#waiting-list" className="justify-end">
             Join Waiting List
@@ -457,7 +457,7 @@ export default function Home() {
       <div className="min-h-screen flex flex-col items-center justify-center">
         <ContainerScroll>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-2xl sm:text-4xl lg:text-9xl font-bold text-center">
+            <h1 className="text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
               Peripatos
             </h1>
             <div className="w-[16rem] h-[4rem] sm:w-[30rem] sm:h-[8rem] lg:w-[60rem] lg:h-[15rem] relative">
@@ -500,7 +500,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/aristotle.png"
+                src="/peripatos/aristotle.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -609,7 +609,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/campus.png"
+                src="/peripatos/campus.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -795,7 +795,7 @@ export default function Home() {
         </div>
         <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
         <div className="mx-auto p-4">
-          <h1 className="relative z-10 text-2xl sm:text-4xl lg:text-9xl font-bold text-center">
+          <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist
           </h1>
           <p></p>

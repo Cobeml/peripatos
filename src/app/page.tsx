@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import Head from 'next/head';
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
@@ -430,19 +429,6 @@ export default function Home() {
     },
   ];
   return (
-    <>
-      <Head>
-        <title>Peripatos - Education Network</title>
-        <link rel="icon" href="favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="apple-icon.png"
-        />
-        <link rel="icon" type="image/png" sizes="32x32" href="icon32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon16x16.png" />
-      </Head>
-    
     <div className="min-h-screen min-w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
@@ -810,6 +796,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-    </>
   );
 }

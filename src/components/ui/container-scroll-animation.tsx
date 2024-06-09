@@ -25,20 +25,24 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [1.05, .95] : [1.05, .95];
+    return isMobile ? [1.05, .90] : [1.05, .95];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 5], [0, 90]);
+  const scaleTransform = () => {
+    return isMobile ? [0, -200] : [0, -100];
+  };
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 2], [0, 100]);
+  const translate = useTransform(scrollYProgress, [0, 1], scaleTransform());
 
   return (
     <div
-      className="flex items-center justify-center relative"
+      className="flex items-center justify-center relative w-full"
       ref={containerRef}
     >
       <div
-        className="py-10 md:py-40 w-full relative"
+        className="w-full relative"
         style={{
           perspective: "1000px",
         }}
@@ -54,7 +58,6 @@ export const ContainerScroll = ({
 export const Card = ({
   rotate,
   scale,
-  translate,
   children,
 }: {
   rotate: MotionValue<number>;
@@ -67,11 +70,9 @@ export const Card = ({
       style={{
         rotateX: rotate,
         scale,
-        translateY: translate,
-    }}
-      className="w-full"
+      }}
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl">
+      <div className="h-full w-full">
         {children}
       </div>
     </motion.div>

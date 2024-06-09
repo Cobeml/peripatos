@@ -25,7 +25,7 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [1.05, .90] : [1.05, .95];
+    return isMobile ? [.95, 1.05] : [1.05, .95];
   };
 
   const scaleTransform = () => {

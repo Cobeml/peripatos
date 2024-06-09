@@ -467,7 +467,7 @@ export default function Home() {
               <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
             </div>
             <div className="px-4 sm:px-16 lg:px-40 2xl:px-60">
-              <p className="border-l-2 border-r-2 mt-3 pl-6 border-pink-400">
+              <p className="border-l-2 border-r-2 mt-3 pl-6 pr-2 border-pink-400">
                 Peripatos is a peer-to-peer education network and marketplace in which 
                 teachers, students, property owners, and investors can participate. It 
                 consists of an underlying decentralized protocol layer verified using 

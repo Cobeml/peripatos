@@ -44,7 +44,7 @@ export const ContainerScroll = ({
       <div
         className="w-full relative"
         style={{
-          perspective: "500px",
+          perspective: "100px",
         }}
       >
         <Card rotate={rotate} translate={translate} scale={scale}>

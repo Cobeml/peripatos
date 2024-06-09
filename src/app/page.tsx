@@ -464,7 +464,7 @@ export default function Home() {
               />
 
               {/* Radial Gradient to prevent sharp edges */}
-              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(80px_60px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
             </div>
             <div className="px-4 sm:px-16 lg:px-40 2xl:px-60">
               <p className="border-l-2 border-r-2 mt-3 pl-6 pr-2 border-pink-400">
@@ -779,9 +779,9 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
-        <div className="mx-auto p-4">
-          <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
+        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(300px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div className="mx-auto">
+          <h1 className="relative text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist
           </h1>
           <p></p>

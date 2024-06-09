@@ -433,7 +433,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
           <a href="#" rel="noopener noreferrer">
-            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-[60px] h-[60px]"/>
+            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-[60px] h-[60px]" width={60} height={60}/>
           </a>
           <a href="#waiting-list" className="justify-end">
             Join Waiting List
@@ -464,7 +464,7 @@ export default function Home() {
               />
 
               {/* Radial Gradient to prevent sharp edges */}
-              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(140px_100px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(140px_80px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
             </div>
             <div className="px-4 sm:px-16 lg:px-40 2xl:px-60">
               <p className="border-l-2 border-r-2 mt-3 pl-6 pr-2 border-pink-400">
@@ -779,8 +779,8 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
-        <div className="mx-auto p-4">
+        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(300px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div className="mx-auto">
           <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist
           </h1>
@@ -791,7 +791,7 @@ export default function Home() {
           <input
             type="text"
             placeholder="example@peripatos.com"
-            className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700"
+            className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative mt-4 bg-neutral-950 placeholder:text-neutral-700"
           />
         </div>
       </div>

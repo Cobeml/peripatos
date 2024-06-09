@@ -779,9 +779,9 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(300px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
-        <div className="mx-auto">
-          <h1 className="relative text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
+        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div className="mx-auto p-4">
+          <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist
           </h1>
           <p></p>

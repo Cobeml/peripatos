@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
-import { ContainerScroll } from "../components/ui/container-scroll-animation";
+import { ContainerScroll } from "../components/ui/container-scroll-animation2";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import {
   Accordion,

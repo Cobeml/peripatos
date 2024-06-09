@@ -496,7 +496,7 @@ export default function Home() {
         </ContainerScroll>
       </div>
       <div className="px-4 sm:px-16 lg:px-40 2xl:px-60 relative flex flex-col justify-center">
-        <CardContainer className="w-[15rem] md:w-[30rem] lg:w-[55rem]">
+        <CardContainer className="w-full md:w-[30rem] lg:w-[55rem]">
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
@@ -605,7 +605,7 @@ export default function Home() {
           , Peripatos allows for 
           the organic formation of thriving campuses.
         </p>
-        <CardContainer className="w-[15rem] md:w-[30rem] lg:w-[55rem]">
+        <CardContainer className="w-full md:w-[30rem] lg:w-[55rem]">
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image

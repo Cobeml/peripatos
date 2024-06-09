@@ -433,7 +433,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
           <a href="#" rel="noopener noreferrer">
-            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8" width={60} height={60} />
+            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-[60px] h-[60px]"/>
           </a>
           <a href="#waiting-list" className="justify-end">
             Join Waiting List
@@ -443,7 +443,7 @@ export default function Home() {
       <div className="min-h-screen flex flex-col items-center justify-center">
         <ContainerScroll>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
+            <h1 className="text-6xl sm:text-6xl lg:text-9xl font-bold text-center">
               Peripatos
             </h1>
             <div className="w-[16rem] h-[4rem] sm:w-[30rem] sm:h-[8rem] lg:w-[60rem] lg:h-[15rem] relative">
@@ -464,7 +464,7 @@ export default function Home() {
               />
 
               {/* Radial Gradient to prevent sharp edges */}
-              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(80px_60px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(140px_100px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
             </div>
             <div className="px-4 sm:px-16 lg:px-40 2xl:px-60">
               <p className="border-l-2 border-r-2 mt-3 pl-6 pr-2 border-pink-400">

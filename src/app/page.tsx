@@ -432,8 +432,8 @@ export default function Home() {
     <div className="min-h-screen min-w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
-          <a href="#" rel="noopener noreferrer">
-            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-[60px] h-[60px]" width={60} height={60}/>
+          <a href="#" rel="noopener noreferrer" className="w-[2rem] lg:w-[4rem] h-auto">
+            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-full" width={60} height={60}/>
           </a>
           <a href="#waiting-list" className="justify-end">
             Join Waiting List
@@ -490,7 +490,7 @@ export default function Home() {
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
+                alt="aristotle's school"
               />
             </CardItem>
             <CardItem
@@ -599,7 +599,7 @@ export default function Home() {
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
+                alt="network effect campus"
               />
             </CardItem>
             <CardItem

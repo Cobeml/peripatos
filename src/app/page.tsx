@@ -429,7 +429,7 @@ export default function Home() {
     },
   ];
   return (
-    <div className="min-h-screen min-w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
+    <div className="min-h-screen w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
           <a href="#" rel="noopener noreferrer" className="w-[2rem] lg:w-[4rem] h-auto">
@@ -779,7 +779,7 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(300px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(500px_350px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
         <div className="mx-auto">
           <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist

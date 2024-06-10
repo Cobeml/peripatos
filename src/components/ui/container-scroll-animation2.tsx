@@ -25,16 +25,16 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
+    return isMobile ? [1.05, .95] : [1.05, 1];
   };
 
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 20]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [-200, 0]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="h-[60rem] md:h-[60rem] flex items-center justify-center relative"
+      className="short:h-[40rem] medium:h-[45rem] tall:h-[50rem] very-tall:h-[55rem] flex items-center justify-center relative"
       ref={containerRef}
     >
       <div

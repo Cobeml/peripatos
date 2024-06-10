@@ -443,10 +443,10 @@ export default function Home() {
       <div className="min-h-screen flex flex-col items-center justify-center">
         <ContainerScroll>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-6xl sm:text-6xl lg:text-9xl font-bold text-center">
+            <h1 className="text-6xl md:text-8xl xl:text-9xl font-bold text-center">
               Peripatos
             </h1>
-            <div className="w-[16rem] h-[4rem] sm:w-[30rem] sm:h-[8rem] lg:w-[60rem] lg:h-[15rem] relative">
+            <div className="w-[30rem] h-[2rem] md:w-[40rem] md:h-[4rem] xl:w-[60rem] xl:h-[10rem] relative">
               {/* Gradients */}
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
@@ -464,7 +464,7 @@ export default function Home() {
               />
 
               {/* Radial Gradient to prevent sharp edges */}
-              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(140px_80px_at_top,transparent_50%,white)] lg:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(140px_80px_at_top,transparent_50%,white)] md:[mask-image:radial-gradient(200px_140px_at_top,transparent_50%,white)] xl:[mask-image:radial-gradient(350px_200px_at_top,transparent_50%,white)]"></div>
             </div>
             <div className="px-4 sm:px-16 lg:px-40 2xl:px-60">
               <p className="border-l-2 border-r-2 mt-3 pl-6 pr-2 border-pink-400">
@@ -768,19 +768,19 @@ export default function Home() {
         </p>
       </div>
       <div className="h-[40rem] min-h-screen w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
-        <div className="w-full absolute inset-0 h-screen">
+        <div className="w-full absolute inset-0 h-full">
           <SparklesCore
             id="tsparticlesfullpage"
             background="transparent"
             minSize={0.6}
             maxSize={1.4}
             particleDensity={100}
-            className="w-full h-full"
+            className="w-full h-full min-h-screen"
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(500px_350px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
-        <div className="mx-auto">
+        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black justify-center items-center [mask-image:radial-gradient(500px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div className="justify-center items-center">
           <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
             Join the waitlist
           </h1>

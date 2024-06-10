@@ -27,6 +27,12 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      screens: {
+        'short': { 'raw': '(max-height: 500px)' },
+        'medium': { 'raw': '(min-height: 501px) and (max-height: 600px)' },
+        'tall': { 'raw': '(min-height: 601px) and (max-height: 800px)' },
+        'very-tall': { 'raw': '(min-height: 801px)' },
+      },
     },
   },
   plugins: [],

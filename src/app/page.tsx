@@ -4,7 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
-import { ContainerScroll } from "../components/ui/container-scroll-animation2";
+import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
 import {
   Accordion,
@@ -572,7 +572,7 @@ export default function Home() {
           </a>
           . When it comes to resource allocation, a career bureaucrat often lacks the experience and incentive structure 
           to make sound decisions. The {" "}
-          <a href="https://saifedean.com/poe" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
+          <a href="https://austrian-institute.org/en/the-austrian-school-of-economics/" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             best allocators
           </a>
           {" "}are individuals driven by passion, interest, and unmet market demand.

@@ -25,20 +25,16 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [.95, 1.05] : [1.05, .95];
+    return isMobile ? [1.05, .95] : [1.05, 1];
   };
 
-  const scaleTransform = () => {
-    return isMobile ? [0, -200] : [0, -100];
-  };
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 20]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], scaleTransform());
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="flex items-center justify-center relative w-full"
+      className="short:h-[40rem] medium:h-[45rem] tall:h-[50rem] very-tall:h-[55rem] super-tall:[65rem] flex items-center justify-center relative"
       ref={containerRef}
     >
       <div
@@ -71,8 +67,9 @@ export const Card = ({
         rotateX: rotate,
         scale,
       }}
+      className="w-full"
     >
-      <div className="h-full w-full">
+      <div className=" h-full w-full overflow-hidden">
         {children}
       </div>
     </motion.div>

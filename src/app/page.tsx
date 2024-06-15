@@ -433,7 +433,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
         <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
           <a href="#" rel="noopener noreferrer" className="w-[2rem] lg:w-[4rem] h-auto">
-            <Image src="/peripatos/peripa-logo.png" alt="Logo" className="mr-8 w-full" width={60} height={60}/>
+            <Image src="/peripa-logo.png" alt="Logo" className="mr-8 w-full" width={60} height={60}/>
           </a>
           <a href="#waiting-list" className="justify-end">
             Join Waiting List
@@ -486,7 +486,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/peripatos/aristotle.png"
+                src="/aristotle.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -595,7 +595,7 @@ export default function Home() {
           <CardBody className="bg-gray-50 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-full rounded-xl ">
             <CardItem translateZ="20" className="w-full">
               <Image
-                src="/peripatos/campus.png"
+                src="/campus.png"
                 height="1000"
                 width="1000"
                 className="h-auto w-full object-cover rounded-xl group-hover/card:shadow-xl"

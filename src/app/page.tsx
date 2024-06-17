@@ -6,6 +6,7 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+import { SubscribeForm } from "../components/subscribe-form";
 import {
   Accordion,
   AccordionContent,
@@ -768,7 +769,7 @@ export default function Home() {
         </p>
       </div>
       <div className="h-[40rem] min-h-screen w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
-        <div className="w-full absolute inset-0 h-full">
+        <div className="w-full absolute inset-0 h-full z-10">
           <SparklesCore
             id="tsparticlesfullpage"
             background="transparent"
@@ -779,21 +780,8 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full bg-black justify-center items-center [mask-image:radial-gradient(500px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
-        <div className="justify-center items-center">
-          <h1 className="relative z-10 text-4xl sm:text-6xl lg:text-9xl font-bold text-center">
-            Join the waitlist
-          </h1>
-          <p></p>
-          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
-            Joining will grant you early access to upcoming releases as well as keep you updated on Peripatos.
-          </p>
-          <input
-            type="text"
-            placeholder="example@peripatos.com"
-            className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative mt-4 bg-neutral-950 placeholder:text-neutral-700"
-          />
-        </div>
+        <div id="waiting-list" className="absolute inset-0 w-full h-full z-20 bg-black justify-center items-center [mask-image:radial-gradient(500px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <SubscribeForm />
       </div>
     </div>
   );

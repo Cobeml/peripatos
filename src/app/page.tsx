@@ -767,6 +767,9 @@ export default function Home() {
         <p className="[&:not(:first-child)]:mt-6">
           Just Build It.
         </p>
+        <p className="[&:not(:first-child)]:mt-6">
+          - Cobe Liu
+        </p>
       </div>
       <div className="h-[40rem] min-h-screen w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
         <div className="w-full absolute inset-0 h-full z-10">

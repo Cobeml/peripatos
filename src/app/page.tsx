@@ -663,7 +663,7 @@ export default function Home() {
             <AccordionContent>
             All Ownership NFTs contain information or content which is encrypted and inaccessible except to the holders of the Ownership NFTs and holders 
             of respective Access NFTs. The encrypted content could be anything from educational material, directions to access the venue location, or 
-            directions to access high-memory content like videos which could not be stored onchain. Access NFTs can be minted by holders of Ownership 
+            directions to access high-bandwidth content like videos which could not be stored onchain. Access NFTs can be minted by holders of Ownership 
             NFT with Access NFT minting permissions. The minter can set parameters for the Access NFTs including during what time period the encrypted 
             content can be accessed and if the Access NFT can be resold.
             </AccordionContent>
@@ -693,7 +693,7 @@ export default function Home() {
         </p>
         <p className="[&:not(:first-child)]:mt-6">
           Switching from client to client is like switching from 
-          YouTube to another video sharing platform which has access to all of YouTube&apos;s content and your past activity (if you like). This drastic 
+          YouTube to another video sharing platform which has access to all of YouTube&apos;s content and your past activity (if you choose). This drastic 
           decrease in friction in the user&apos;s ability to opt in or out of a given client&apos;s feature set, business model, and policies allows for greater 
           competition between clients. This high degree of competition results in a highly differntiated and competitive 
           client market.
@@ -707,7 +707,7 @@ export default function Home() {
         <p className="[&:not(:first-child)]:mt-6">
           This approach also lends itself to provide the &quot;it just works!&quot; moments everyone appreciates. Allowing for competing clients allows each 
           client to provide a different user experience as well as additional features. Many of these features will provide conveniences which the 
-          protocol layer itself is incapable of providing (native video hosting, on demand video streaming, interactive content modules, personalized 
+          protocol layer itself is incapable of providing (video hosting, on demand video streaming, interactive content modules, personalized 
           feeds, fiat payment). Additionally, the competition of user interfaces allows for different clients to cater to different users. While many 
           will prefer that the techno-mumbo-jumbo remain under the hood, some will opt for greater customization and clarity.
         </p>
@@ -725,7 +725,7 @@ export default function Home() {
             Exit or Voice
           </a>
           . However, when the exit alternative is only worse or 
-          requires immense discomfort, these tools leave the unsatisfied class impotent to peaceful change. In these scenarios, many 
+          requires the undertaking of immense discomfort, these tools leave the unsatisfied class impotent to peaceful change. In these scenarios, many 
           (rightfully) unsatisfied with their institutions are emboldened to destructive violence resulting in {" "}
           <a href="https://en.wikipedia.org/wiki/French_Revolution" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             chaos

@@ -629,11 +629,11 @@ export default function Home() {
           Protocol Layer
         </h3>
         <p className="[&:not(:first-child)]:mt-6">
-          Peripatos is built on established Ethereum Layer 2 solutions, initially focusing on Base, providing a secure and scalable foundation for our 
+          Peripatos is built on established Ethereum Layer 2 solutions, initially focusing on Base, providing a secure and scalable foundation for our {" "}
           <a href="https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
             protocol-based
           </a>
-          educational marketplace. We plan to expand compatibility to other chains in the future to increase accessibility and interoperability.
+          {" "} educational marketplace. We plan to expand compatibility to other chains in the future to increase accessibility and interoperability.
         </p>
         <p className="[&:not(:first-child)]:mt-6">
           The chosen L2 solution serves as the ledger and central database for marketplace transactions and access management. Peripatos initially charges a 0.5-1% platform fee on transactions, with plans to introduce a native token in the future to further incentivize ecosystem participation.
@@ -653,7 +653,7 @@ export default function Home() {
             <AccordionContent>
               Each Ownership NFT has an associated ACL that manages access rights to the off-chain content. When a user purchases access:
               1. Their public key is added to the off-chain ACL.
-              2. The ACL's hash is updated on-chain for verification.
+              2. The ACL&apos;s hash is updated on-chain for verification.
               3. The user receives an encrypted key for content access.
               4. Access parameters like duration can be set by the Ownership NFT holder.
               This system provides flexible, scalable access management.
@@ -662,7 +662,7 @@ export default function Home() {
           <AccordionItem value="item-3">
             <AccordionTrigger>Profile NFTs</AccordionTrigger>
             <AccordionContent>
-              Profile NFTs are soulbound tokens containing basic user information and reputation data. They're implemented using upgradeable smart contracts to allow for future enhancements. Anyone can mint a Profile NFT and leave reviews for other profiles, fostering a reputation-based ecosystem.
+              Profile NFTs are soulbound tokens containing basic user information and reputation data. They&apos;re implemented using upgradeable smart contracts to allow for future enhancements. Anyone can mint a Profile NFT and leave reviews for other profiles, fostering a reputation-based ecosystem.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -670,7 +670,7 @@ export default function Home() {
             <AccordionContent>
               The actual educational content is stored off-chain to ensure scalability and reduce on-chain costs. Content creators have two storage options:
               1. Decentralized Storage: Content is stored on IPFS (InterPlanetary File System), providing decentralization and censorship resistance.
-              2. Proprietary Servers: For users prioritizing convenience, content can be stored on Peripatos' secure, high-performance servers.
+              2. Proprietary Servers: For users prioritizing convenience, content can be stored on Peripatos&apos; secure, high-performance servers.
               Both options implement strong encryption to ensure content security. The choice between decentralized and centralized storage allows creators to balance their preferences for decentralization and convenience.
             </AccordionContent>
           </AccordionItem>

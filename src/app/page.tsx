@@ -629,52 +629,49 @@ export default function Home() {
           Protocol Layer
         </h3>
         <p className="[&:not(:first-child)]:mt-6">
-          Peripatos is made up of an underlying {" "} 
+          Peripatos is built on established Ethereum Layer 2 solutions, initially focusing on Base, providing a secure and scalable foundation for our 
           <a href="https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech" className="font-medium text-primary text-pink-400" target="_blank" rel="noopener noreferrer">
-            protocol 
+            protocol-based
           </a>
-          {" "}layer, built using a Tendermint Proof of Stake blockchain, and an adaptable client-side layer. 
+          educational marketplace. We plan to expand compatibility to other chains in the future to increase accessibility and interoperability.
         </p>
         <p className="[&:not(:first-child)]:mt-6">
-          The protocol layer is used as the ledger and central database for all marketplace transactions and commodities. The ledger is secured by staking 
-          the $PTOS token. All transactions and activity occuring on the protocol layer incurs fees, earned by $PTOS stakers.
+          The chosen L2 solution serves as the ledger and central database for marketplace transactions and access management. Peripatos initially charges a 0.5-1% platform fee on transactions, with plans to introduce a native token in the future to further incentivize ecosystem participation.
         </p>
         <p className="[&:not(:first-child)]:mt-6">
-          The types of commodities which can be owned or traded can be separated into three types: Ownership NFTs, Access NFTs, and Profile NFTs. The 
-          Ownership NFTs signify ownership of either educational material or a venue. The holder of the Ownership NFT receives the revenue associated 
-          with the owned entity. Access NFT holders can access encrypted information and content associated with respective Ownership NFTs. Profile NFTs 
-          are soulbound NFTs which track the reputation of a user.
+          The marketplace features two types of NFTs: Ownership NFTs and Profile NFTs. Ownership NFTs represent educational material or venues, while Profile NFTs track user reputations as soulbound tokens. Access to content is managed through a sophisticated Access Control List (ACL) system.
         </p>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>Ownership NFTs</AccordionTrigger>
             <AccordionContent>
-            Ownership NFTs can be minted by anyone who would like to sell educational material or a venue on the Peripatos marketplace. The wallet 
-            address which mints the Ownership NFT receives the Ownership NFT and has full access to mutate and edit it as they choose. They can 
-            additionally choose other wallet addresses which can edit its content. Ownership NFTs can be split into any number of smaller parts, 
-            each signifying a proportionally partial share of the revenue associated with the parent Ownership NFT. When splitting, the holder can 
-            choose what mutation permissions each of the children Ownership NFTs have. The children cannot be granted permissions which the parent 
-            Ownership NFT does not have. Additonally, anyone can leave a review associated with an Ownership NFT describing their experience with 
-            the product.
+              Ownership NFTs can be minted by content creators. They control content editing permissions and can be fractionalized. The NFTs contain metadata and access control information, while the actual content is stored off-chain. Reviews can be left for each Ownership NFT.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Access NFTs</AccordionTrigger>
+            <AccordionTrigger>Access Control Lists (ACLs)</AccordionTrigger>
             <AccordionContent>
-            All Ownership NFTs contain information or content which is encrypted and inaccessible except to the holders of the Ownership NFTs and holders 
-            of respective Access NFTs. The encrypted content could be anything from educational material, directions to access the venue location, or 
-            directions to access high-bandwidth content like videos which could not be stored onchain. Access NFTs can be minted by holders of Ownership 
-            NFT with Access NFT minting permissions. The minter can set parameters for the Access NFTs including during what time period the encrypted 
-            content can be accessed and if the Access NFT can be resold.
+              Each Ownership NFT has an associated ACL that manages access rights to the off-chain content. When a user purchases access:
+              1. Their public key is added to the off-chain ACL.
+              2. The ACL's hash is updated on-chain for verification.
+              3. The user receives an encrypted key for content access.
+              4. Access parameters like duration can be set by the Ownership NFT holder.
+              This system provides flexible, scalable access management.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>Profile NFTs</AccordionTrigger>
             <AccordionContent>
-            Profile NFTs are soulbound NFTs, meaning that once minted they cannot be traded. They contain simple information like a name and a 
-            bio which are mutable by the holder. Additionally, anyone can leave a review associated with a holder&apos;s Profile NFT, describing their 
-            experience with the user. Anyone can mint a Profile NFT. Users are incentivized to mint them as developing a solid reputation 
-            increases engagement.
+              Profile NFTs are soulbound tokens containing basic user information and reputation data. They're implemented using upgradeable smart contracts to allow for future enhancements. Anyone can mint a Profile NFT and leave reviews for other profiles, fostering a reputation-based ecosystem.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Content Storage</AccordionTrigger>
+            <AccordionContent>
+              The actual educational content is stored off-chain to ensure scalability and reduce on-chain costs. Content creators have two storage options:
+              1. Decentralized Storage: Content is stored on IPFS (InterPlanetary File System), providing decentralization and censorship resistance.
+              2. Proprietary Servers: For users prioritizing convenience, content can be stored on Peripatos' secure, high-performance servers.
+              Both options implement strong encryption to ensure content security. The choice between decentralized and centralized storage allows creators to balance their preferences for decentralization and convenience.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

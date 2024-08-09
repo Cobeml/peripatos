@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
-import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card-lg";
 import { SubscribeForm } from "../components/subscribe-form";
 import {
   Accordion,

@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
         <Link href="/" className="w-[2rem] lg:w-[4rem] h-auto">
           <Image src="/logo.png" alt="Logo" className="mr-8 w-full" width={60} height={60} />
         </Link>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 w-full ml-8">
           <Link href="/" className="hover:text-gray-300">
             Home
           </Link>
@@ -21,10 +21,10 @@ const Navbar: React.FC = () => {
           <Link href="/teach" className="hover:text-gray-300">
             Teach
           </Link>
-          <Link href="/#mailing-list" className="hover:text-gray-300 justify-end">
-            Join Mailing List
-          </Link>
         </div>
+        <Link href="/#mailing-list" className="justify-end w-[12rem]">
+          Join Mailing List
+        </Link>
       </div>
     </nav>
   );

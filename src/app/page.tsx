@@ -6,6 +6,7 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { TypewriterEffectSmooth } from "../components/ui/typewriter-effect";
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card-lg";
+import Navbar from "../components/ui/navbar";
 import { SubscribeForm } from "../components/subscribe-form";
 import {
   Accordion,
@@ -431,16 +432,7 @@ export default function Home() {
   ];
   return (
     <div className="min-h-screen w-screen flex flex-col w-full bg-black items-center justify-center overflow-auto rounded-md text-pink-100">
-      <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
-        <div className="flex items-center justify-between w-full"> {/* Flex container for alignment */}
-          <a href="#" rel="noopener noreferrer" className="w-[2rem] lg:w-[4rem] h-auto">
-            <Image src="/logo.png" alt="Logo" className="mr-8 w-full" width={60} height={60}/>
-          </a>
-          <a href="#waiting-list" className="justify-end">
-            Join Waiting List
-          </a>
-        </div>
-      </div>
+      <Navbar/>
       <div className="min-h-screen flex flex-col items-center justify-center">
         <ContainerScroll>
           <div className="flex flex-col items-center justify-center">
@@ -780,7 +772,7 @@ export default function Home() {
             particleColor="#FFFFD0"
           />
         </div>
-        <div id="waiting-list" className="absolute inset-0 w-full h-full z-20 bg-black justify-center items-center [mask-image:radial-gradient(500px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
+        <div id="mailing-list" className="absolute inset-0 w-full h-full z-20 bg-black justify-center items-center [mask-image:radial-gradient(500px_200px_at_center,transparent_50%,white)] lg:[mask-image:radial-gradient(600px_400px_at_center,transparent_50%,white)]"></div>
         <SubscribeForm />
       </div>
     </div>

@@ -19,7 +19,6 @@ import {
 const World = dynamic(() => import("../components/ui/globe").then((m) => m.World), {
   ssr: false,
 });
-
 export default function Home() {
   const words = [
     {

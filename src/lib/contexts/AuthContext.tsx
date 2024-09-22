@@ -1,28 +1,21 @@
 "use client";
 
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut, signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { User } from "firebase/auth";
 import { auth, db } from "../firebase/firebase";
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc, query, collection, where, getDocs } from 'firebase/firestore';
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   signInWithGoogle: (username: string, userType: string[]) => Promise<void>;
   signOut: () => Promise<void>;
-  signInWithEmailAndPassword: (email: string, password: string, username: string, userType: string[]) => Promise<void>;
+  signInWithEmailAndPassword: (emailOrUsername: string, password: string) => Promise<User>;
   signUpWithEmailAndPassword: (email: string, password: string, username: string, userType: string[]) => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextType>({
-  user: null,
-  loading: true,
-  signInWithGoogle: async () => {},
-  signOut: async () => {},
-  signInWithEmailAndPassword: async () => {},
-  signUpWithEmailAndPassword: async () => {},
-});
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -65,20 +58,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const signInWithEmailAndPassword = async (email: string, password: string, username: string, userType: string[]) => {
+  const signInWithEmailAndPassword = async (emailOrUsername: string, password: string) => {
     try {
-      const userCredential = await firebaseSignInWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, 'users', userCredential.user.uid), {
-        email,
-        username,
-        userType,
-        displayName: username,
-      });
+      let email = emailOrUsername;
       
-      // Update the user's profile
-      await updateProfile(userCredential.user, { displayName: username });
+      // Check if input is not an email
+      if (!emailOrUsername.includes('@')) {
+        // Query Firestore to get the email associated with the username
+        const usersRef = collection(db, 'users');
+        const q = query(usersRef, where("username", "==", emailOrUsername));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+          throw new Error('No user found with this username.');
+        }
+        
+        email = querySnapshot.docs[0].data().email;
+      }
+
+      const userCredential = await firebaseSignInWithEmailAndPassword(auth, email, password);
+      return userCredential.user;
     } catch (error) {
-      console.error("Error signing in with email and password", error);
+      console.error("Error signing in with email/username and password", error);
       throw error;
     }
   };
@@ -113,18 +114,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  return (
-    <AuthContext.Provider value={{ 
-      user, 
-      loading, 
-      signInWithGoogle, 
-      signOut: signOutUser, 
-      signInWithEmailAndPassword,
-      signUpWithEmailAndPassword 
-    }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  const value = {
+    user,
+    loading,
+    signInWithGoogle,
+    signOut: signOutUser,
+    signInWithEmailAndPassword,
+    signUpWithEmailAndPassword
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+// Add this custom hook
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 }
 
 export { AuthContext };

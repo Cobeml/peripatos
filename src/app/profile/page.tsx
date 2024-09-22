@@ -95,7 +95,7 @@ export default function Profile() {
     return (
       <div className="min-h-screen w-full bg-black text-pink-100">
         <Navbar />
-        <div className="min-h-screen w-full px-4 pt-20 flex items-center justify-center">
+        <div className="min-h-screen w-full px-4 flex items-center justify-center">
           <p>Please log in to view your profile.</p>
         </div>
       </div>
@@ -105,9 +105,8 @@ export default function Profile() {
   return (
     <div className="min-h-screen w-full bg-black text-pink-100">
       <Navbar />
-      <div className="min-h-screen w-full px-4 pt-20">
-        <h1 className="text-4xl font-bold mb-8">Your Profile</h1>
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+      <div className="min-h-screen w-full px-4 flex items-center justify-center">
+        <form onSubmit={handleSubmit} className="max-w-2xl w-full">
           <div className="mb-4">
             <label className="block mb-2">Display Name</label>
             {editingField === 'displayName' ? (

@@ -16,7 +16,7 @@ import {
 export default function Learn() {
     const tabsData = [
         {
-            label: 'Featured Courses',
+            label: 'Explore Courses',
             content: 
             <BentoGrid className="mx-auto">
                 {items.map((item, i) => (

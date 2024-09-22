@@ -12,7 +12,8 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [userType, setUserType] = useState('');
   const [receiveUpdates, setReceiveUpdates] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { signUpWithEmailAndPassword, signInWithGoogle } = useAuth();
@@ -28,25 +29,27 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose }) => {
       setError('Password must be at least 6 characters long.');
       return;
     }
-    if (userType.length === 0) {
+    if (!userType) {
       setError('Please select at least one user type.');
       return;
     }
     try {
-      await signUpWithEmailAndPassword(email, password, username, userType);
+      console.log('Starting sign-up process...');
+      await signUpWithEmailAndPassword(email, password, username, [userType]);
+      console.log('Sign-up successful');
       if (receiveUpdates) {
         await subscribeToNewsletter(email, username);
       }
       onClose();
     } catch (error: any) {
+      console.error('Error during sign-up:', error);
       if (error.code === 'auth/email-already-in-use') {
         setError('This email is already registered. Please try logging in instead.');
       } else if (error.code === 'auth/weak-password') {
         setError('Password is too weak. Please choose a stronger password.');
       } else {
-        setError('An error occurred during sign up. Please try again.');
+        setError(`An error occurred during sign up: ${error.message}`);
       }
-      console.error('Error signing up with email and password:', error);
     }
   };
 
@@ -56,12 +59,12 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose }) => {
       setError('Username is required.');
       return;
     }
-    if (userType.length === 0) {
+    if (!userType) {
       setError('Please select at least one user type.');
       return;
     }
     try {
-      await signInWithGoogle(username, userType);
+      await signInWithGoogle(username, [userType]);
       if (receiveUpdates) {
         await subscribeToNewsletter(email, username);
       }
@@ -73,9 +76,24 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleUserTypeChange = (type: string) => {
-    setUserType(prev => 
-      prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
-    );
+    setSelectedTypes(prev => {
+      const newTypes = prev.includes(type)
+        ? prev.filter(t => t !== type)
+        : [...prev, type];
+      
+      // Determine user type based on selected checkboxes
+      let newUserType = '';
+      if (newTypes.includes('learn')) {
+        newUserType = 'Student';
+      } else if (newTypes.includes('teach')) {
+        newUserType = 'Teacher';
+      } else if (newTypes.includes('lease') && newTypes.length === 1) {
+        newUserType = 'Classroom Owner';
+      }
+      
+      setUserType(newUserType);
+      return newTypes;
+    });
   };
 
   const subscribeToNewsletter = async (email: string, name: string) => {
@@ -133,22 +151,32 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ isOpen, onClose }) => {
             <label key={type} className="flex items-center mb-2">
               <input
                 type="checkbox"
-                checked={userType.includes(type)}
+                checked={selectedTypes.includes(type)}
                 onChange={() => handleUserTypeChange(type)}
                 className="mr-2"
               />
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </label>
           ))}
-          <label className="flex items-center mb-4">
-            <input
-              type="checkbox"
-              checked={receiveUpdates}
-              onChange={(e) => setReceiveUpdates(e.target.checked)}
-              className="mr-2"
-            />
-            I want to receive updates on Peripatos
-          </label>
+          {userType && (
+            <p className="mt-2 text-sm text-gray-600">
+              You will be registered as: <strong>{userType}</strong>
+            </p>
+          )}
+          <div className="mt-6 mb-4 p-3 bg-gray-100 rounded-md border border-gray-300">
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                checked={receiveUpdates}
+                onChange={(e) => setReceiveUpdates(e.target.checked)}
+                className="mr-2"
+              />
+              <span className="text-sm font-medium">
+                I want to receive updates on Peripatos
+              </span>
+            </label>
+          </div>
+
           <Button type="submit" className="w-full mt-4 mb-2">Sign Up</Button>
         </form>
         <Button onClick={handleGoogleSignUp} className="w-full">Sign up with Google</Button>

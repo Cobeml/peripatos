@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from './button';
-import { Mail, Menu, X, User } from "lucide-react"
+import { Menu, X, User } from "lucide-react"
 import LoginModal from '../../components/login-modal';
 import SignUpModal from '../sign-up-modal';
 import { useAuth } from '../../lib/hooks/useAuth';
@@ -22,10 +22,11 @@ const Navbar: React.FC = () => {
     { href: '/courses', label: 'Courses' },
     { href: '/teach', label: 'Teach' },
     { href: '/lease', label: 'Lease' },
-    { href: '/profile', label: 'Profile' },
   ];
   
   // Update the desktop and mobile menu to include these new links
+
+  const buttonClasses = "bg-white text-gray-700 font-semibold px-2 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300 ease-in-out";
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b-2 border-white py-2 px-4 rounded-md">
@@ -51,29 +52,30 @@ const Navbar: React.FC = () => {
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white"
+          className="md:hidden text-white ml-auto"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Desktop Buttons */}
-        {user ? (
-          <Link href="/profile" className="flex items-center text-pink-100">
-            <User className="w-6 h-6 mr-2" />
-            <span>{user.displayName || 'Profile'}</span>
-          </Link>
-        ) : (
-          <>
-            <Button className="w-auto mr-2" onClick={() => setIsSignUpModalOpen(true)}>
-              Sign Up
-            </Button>
-            <Button className="w-auto" onClick={() => setIsLoginModalOpen(true)}>
-              Login
-            </Button>
-          </>
-        )}
-
+        {/* Desktop Buttons - Only visible on desktop */}
+        <div className="hidden md:flex items-center">
+          {user ? (
+            <Link href="/profile" className="flex items-center text-pink-100">
+              <User className="w-6 h-6 mr-2" />
+              <span>{user.displayName || 'Profile'}</span>
+            </Link>
+          ) : (
+            <>
+              <Button className={`w-auto mr-2 ${buttonClasses}`} onClick={() => setIsSignUpModalOpen(true)}>
+                Sign Up
+              </Button>
+              <Button className={`w-auto ${buttonClasses}`} onClick={() => setIsLoginModalOpen(true)}>
+                Login
+              </Button>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -101,14 +103,14 @@ const Navbar: React.FC = () => {
               <span>{user.displayName || 'Profile'}</span>
             </Link>
           ) : (
-            <>
-              <Button className="w-full mt-2" onClick={() => setIsSignUpModalOpen(true)}>
+            <div className="flex items-center justify-center w-full">
+              <Button className={`w-[6rem] justify-center mr-2 mt-2 ${buttonClasses}`} onClick={() => setIsSignUpModalOpen(true)}>
                 Sign Up
               </Button>
-              <Button className="w-full mt-2" onClick={() => setIsLoginModalOpen(true)}>
+              <Button className={`w-[6rem] justify-center mt-2 ${buttonClasses}`} onClick={() => setIsLoginModalOpen(true)}>
                 Login
               </Button>
-            </>
+            </div>
           )}
         </div>
       )}

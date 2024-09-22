@@ -85,19 +85,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUpWithEmailAndPassword = async (email: string, password: string, username: string, userType: string[]) => {
     try {
+      console.log('Creating user with email and password...');
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log('User created successfully, updating profile...');
+      await updateProfile(userCredential.user, { displayName: username });
+      console.log('Profile updated, setting user data in Firestore...');
       await setDoc(doc(db, 'users', userCredential.user.uid), {
         email,
         username,
         userType,
         displayName: username,
       });
-      
-      // Update the user's profile
-      await updateProfile(userCredential.user, { displayName: username });
-    } catch (error) {
-      console.error("Error signing up with email and password", error);
-      throw error;
+      console.log('User data set in Firestore successfully');
+    } catch (error: any) {
+      console.error('Error in signUpWithEmailAndPassword:', error);
+      if (error.code === 'auth/email-already-in-use') {
+        throw new Error('This email is already in use. Please try logging in or use a different email.');
+      } else if (error.code === 'auth/invalid-email') {
+        throw new Error('The email address is not valid.');
+      } else if (error.code === 'auth/operation-not-allowed') {
+        throw new Error('Email/password accounts are not enabled. Please contact support.');
+      } else if (error.code === 'auth/weak-password') {
+        throw new Error('The password is too weak. Please choose a stronger password.');
+      } else {
+        throw new Error(`An unexpected error occurred: ${error.message}`);
+      }
     }
   };
 

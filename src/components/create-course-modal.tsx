@@ -8,20 +8,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface CreateCourseModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (courseData: { title: string; description: string; medium: string }) => void;
+  onSubmit: (courseData: { title: string; description: string; medium: string; price: number }) => void;
 }
 
 const CreateCourseModal: React.FC<CreateCourseModalProps> = ({ isOpen, onClose, onSubmit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [medium, setMedium] = useState('');
+  const [price, setPrice] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ title, description, medium });
+    onSubmit({ title, description, medium, price: parseFloat(price) });
     setTitle('');
     setDescription('');
     setMedium('');
+    setPrice('');
   };
 
   return (
@@ -56,6 +58,14 @@ const CreateCourseModal: React.FC<CreateCourseModalProps> = ({ isOpen, onClose, 
               <SelectItem value="in_person" className="text-gray-900 hover:bg-gray-100 hover:text-gray-700">In-Person</SelectItem>
             </SelectContent>
           </Select>
+          <Input
+            type="number"
+            placeholder="Course Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+            className="text-black"
+          />
           <Button type="submit">Create Course</Button>
         </form>
       </DialogContent>

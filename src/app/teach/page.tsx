@@ -8,6 +8,7 @@ import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 import { useAuth } from '../../lib/contexts/AuthContext';
 import CreateCourseModal from '../../components/create-course-modal';
 import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import { useRouter } from 'next/navigation';
 
 interface Course {
   id: string;
@@ -16,12 +17,14 @@ interface Course {
   medium: string;
   published: boolean;
   authorId: string;
+  price: number;
 }
 
 export default function Teach() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     if (user) {
@@ -41,13 +44,14 @@ export default function Teach() {
   const handleCreateCourse = async (courseData: Omit<Course, 'id' | 'authorId' | 'published'>) => {
     if (!user) return;
     try {
-      await addDoc(collection(db, 'courses'), {
+      const docRef = await addDoc(collection(db, 'courses'), {
         ...courseData,
         authorId: user.uid,
         published: false
       });
       setIsModalOpen(false);
       fetchCourses();
+      router.push(`/teach/course/${docRef.id}`); // This should now point to the correct dynamic route
     } catch (error) {
       console.error('Error creating course:', error);
       alert('Failed to create course. Please try again.');
@@ -79,19 +83,22 @@ export default function Teach() {
         </div>
         <BentoGrid className="mx-auto">
           {courses.map((course) => (
-            <BentoGridItem
-              key={course.id}
-              title={course.title}
-              description={
-                <>
-                  {course.description}
-                  <p className="mt-2">Medium: {course.medium}</p>
-                  <p>Status: {course.published ? 'Published' : 'Draft'}</p>
-                </>
-              }
-              header={<div className="w-full h-48 bg-gradient-to-br from-neutral-900 to-neutral-800"></div>}
-              icon={null}
-            />
+            <div key={course.id} onClick={() => router.push(`/teach/course/${course.id}`)} className="cursor-pointer">
+              <BentoGridItem
+                title={course.title}
+                description={
+                  <>
+                    {course.description}
+                    <p className="mt-2">Medium: {course.medium}</p>
+                    <p>Status: {course.published ? 'Published' : 'Draft'}</p>
+                    <p>Price: ${course.price}</p>
+                  </>
+                }
+                header={<div className="w-full h-48 bg-gradient-to-br from-neutral-900 to-neutral-800"></div>}
+                icon={null}
+                className="w-full h-full"
+              />
+            </div>
           ))}
         </BentoGrid>
       </div>

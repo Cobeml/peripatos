@@ -37,5 +37,188 @@ html {
   scroll-behavior: smooth;
 }
 
-@import 'https://cdn.jsdelivr.net/gh/mdgaziur/EditorJS-LaTeX@latest/dist/editorjs-latex.bundle.min.css';
-@import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css';
+EditorJS LaTeX styles
+.cdx-block {
+  width: 100%;
+}
+
+.ce-block__content {
+  max-width: 90% !important; /* Increased max-width */
+  margin: 0 auto;
+}
+
+.math-input-wrapper {
+  width: 100%;
+  padding: 5px;
+}
+
+.math-input {
+  width: 100%;
+  min-height: 40px;
+  color: black;
+  background-color: white;
+  resize: vertical;
+}
+
+.math-output {
+  display: block;
+  margin-top: 10px;
+}
+
+.math-output + .math-output {
+  display: none;
+}
+
+/* Ensure LaTeX blocks are full width */
+.ce-block--math .ce-block__content {
+  max-width: 100% !important;
+}
+
+/* EditorJS styles */
+.codex-editor__redactor {
+  padding-left: 30px !important; /* Reduced left padding */
+  padding-right: 30px !important; /* Reduced right padding */
+}
+
+.ce-toolbar__content {
+  max-width: calc(100% - 60px) !important; /* Adjust based on your layout */
+}
+
+.ce-inline-toolbar {
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 auto;
+}
+
+/* Add some padding to the editor container */
+#editorjs {
+  padding: 0 20px; /* Add horizontal padding */
+}
+
+/* Ensure the editor doesn't overflow its container */
+.codex-editor {
+  overflow-x: visible;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 640px) {
+  .codex-editor__redactor {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .ce-block__content {
+    max-width: 100% !important;
+  }
+
+  #editorjs {
+    padding: 0 5px;
+  }
+}
+
+/* Make add and tune buttons more visible */
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn {
+  color: #999999 !important; /* Darker gray color */
+  opacity: 1 !important; /* Full opacity */
+  background-color: transparent !important; /* Ensure background is transparent */
+}
+
+.ce-toolbar__plus:hover,
+.ce-toolbar__settings-btn:hover {
+  color: #000000 !important; /* Black color on hover */
+  background-color: #ffffff !important; /* White background on hover */
+}
+
+/* Style for the icon inside the button */
+.ce-toolbar__plus svg,
+.ce-toolbar__settings-btn svg {
+  fill: #999999 !important; /* Darker gray fill for the icon */
+}
+
+.ce-toolbar__plus:hover svg,
+.ce-toolbar__settings-btn:hover svg {
+  fill: #000000 !important; /* Black fill for the icon on hover */
+}
+
+/* Style the add widget popup */
+.ce-popover {
+  background-color: #ffffff !important; /* White background */
+}
+
+.ce-popover__item-icon {
+  color: #000000 !important; /* Black icons */
+}
+
+.ce-popover__item-label {
+  color: #000000 !important; /* Black text */
+}
+
+/* Style the search input in the add widget popup */
+.cdx-search-field {
+  background-color: #f0f0f0 !important; /* Light gray background */
+}
+
+.cdx-search-field__input {
+  color: #000000 !important; /* Black text */
+}
+
+/* EditorJS Table Plugin Styles */
+.tc-popover {
+  color: black !important;
+  background-color: white !important;
+}
+
+.tc-popover__item-icon,
+.tc-popover__item-label {
+  color: black !important;
+}
+
+.tc-add-column:before,
+.tc-add-row:before {
+  background-color: black !important;
+}
+
+.tc-add-column:hover,
+.tc-add-row:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.tc-cell--selected {
+  background: rgba(173, 216, 230, 0.5) !important; /* Light blue background for selected cells */
+}
+
+/* Ensure input fields in table popups have black text */
+.tc-popover input {
+  color: black !important;
+}
+
+h1.ce-header {
+  font-size: 2.25rem; /* text-4xl (increased from text-3xl) */
+  font-weight: 700; /* font-bold */
+}
+
+h2.ce-header {
+  font-size: 1.875rem; /* text-3xl (increased from text-2xl) */
+  font-weight: 600; /* font-semibold */
+}
+
+h3.ce-header {
+  font-size: 1.5rem; /* text-2xl (increased from text-xl) */
+  font-weight: 600; /* font-semibold */
+}
+
+h4.ce-header {
+  font-size: 1.25rem; /* text-xl (increased from text-lg) */
+  font-weight: 600; /* font-semibold */
+}
+
+h5.ce-header {
+  font-size: 1.125rem; /* text-lg (increased from text-base) */
+  font-weight: 600; /* font-semibold */
+}
+
+h6.ce-header {
+  font-size: 1.125rem; /* text-lg (increased from text-base) */
+  font-weight: 600; /* font-semibold */
+}

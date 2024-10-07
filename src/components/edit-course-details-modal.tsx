@@ -1,47 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
-interface CreateCourseModalProps {
+interface EditCourseDetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (courseData: { title: string; description: string; medium: string; price: number; location: string }) => void;
+  onSubmit: (courseData: { description: string; medium: string; price: number; location: string; schedule: string }) => void;
+  initialData: { description: string; medium: string; price: number; location: string; schedule: string };
 }
 
-const CreateCourseModal: React.FC<CreateCourseModalProps> = ({ isOpen, onClose, onSubmit }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [medium, setMedium] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
+const EditCourseDetailsModal: React.FC<EditCourseDetailsModalProps> = ({ isOpen, onClose, onSubmit, initialData }) => {
+  const [description, setDescription] = useState(initialData.description);
+  const [medium, setMedium] = useState(initialData.medium);
+  const [price, setPrice] = useState(initialData.price.toString());
+  const [location, setLocation] = useState(initialData.location);
+  const [schedule, setSchedule] = useState(initialData.schedule);
+
+  useEffect(() => {
+    setDescription(initialData.description);
+    setMedium(initialData.medium);
+    setPrice(initialData.price.toString());
+    setLocation(initialData.location);
+    setSchedule(initialData.schedule);
+  }, [initialData]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ title, description, medium, price: parseFloat(price), location });
-    setTitle('');
-    setDescription('');
-    setMedium('');
-    setPrice('');
-    setLocation('');
+    onSubmit({ description, medium, price: parseFloat(price), location, schedule });
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Create New Course</DialogTitle>
+          <DialogTitle>Edit Course Details</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            placeholder="Course Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            className="text-black"
-          />
           <Textarea
             placeholder="Course Description"
             value={description}
@@ -49,7 +46,7 @@ const CreateCourseModal: React.FC<CreateCourseModalProps> = ({ isOpen, onClose, 
             required
             className="text-black"
           />
-          <Select onValueChange={setMedium} required>
+          <Select onValueChange={setMedium} value={medium} required>
             <SelectTrigger className="bg-white text-gray-900">
               <SelectValue placeholder="Select Medium" className="text-gray-500" />
             </SelectTrigger>
@@ -74,11 +71,17 @@ const CreateCourseModal: React.FC<CreateCourseModalProps> = ({ isOpen, onClose, 
             onChange={(e) => setLocation(e.target.value)}
             className="text-black"
           />
-          <Button type="submit">Create Course</Button>
+          <Textarea
+            placeholder="Course Schedule (e.g., Meeting times)"
+            value={schedule}
+            onChange={(e) => setSchedule(e.target.value)}
+            className="text-black"
+          />
+          <Button type="submit">Update Course Details</Button>
         </form>
       </DialogContent>
     </Dialog>
   );
 };
 
-export default CreateCourseModal;
+export default EditCourseDetailsModal;

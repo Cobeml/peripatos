@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
+    { href: '/', label: 'Manifesto' },
     { href: '/learn', label: 'Learn' },
     { href: '/teach', label: 'Teach' },
     { href: '/lease', label: 'Lease' },

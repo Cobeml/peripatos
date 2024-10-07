@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from '../lib/contexts/AuthContext';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdgaziur/EditorJS-LaTeX@latest/dist/editorjs-latex.bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" />
+      </head>
+      <body className={inter.className}>
         <AuthProvider>
           {children}
         </AuthProvider>
+        <Script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.19.0/dist/editor.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.jsdelivr.net/gh/mdgaziur/EditorJS-LaTeX@latest/dist/editorjs-latex.bundle-min.js" strategy="beforeInteractive" />
       </body>
     </html>
   );
